@@ -4,22 +4,18 @@
 ------------
 
 1. Выполнить команду composer install
-2. Выполнить команду php init, выбрать среду приложения (dev, prod)
-3. Запустить миграции php yii migrate/up
-
-### База данных
-
-Отредактировать файл `config/db.php` на свои данные, например:
-
+2. Создать бд `my_db`, отредактировать файл `config/db.php` на свои данные, например:
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'dsn' => 'mysql:host=localhost;dbname=my_db',
     'username' => 'root',
     'password' => '1234',
     'charset' => 'utf8mb4',
 ];
 ```
+3. Запустить миграции php yii migrate/up
+4. Папка входа: \demo-site\web
 
 Структура проекта
 -------------------

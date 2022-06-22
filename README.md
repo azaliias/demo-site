@@ -15,7 +15,7 @@ return [
 ];
 ```
 3. Запустить миграции php yii migrate/up
-4. Папка входа: \demo-site\web
+4. Entry point приложения: \demo-site\web
 
 Структура проекта
 -------------------

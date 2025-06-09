@@ -7,14 +7,28 @@
                     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
                     <script type="text/javascript">
                         function myfunc() {
+                            var placemarks = {};
                             ymaps.ready(init);
                             function init () {
                                 var myMap = new ymaps.Map('map', {
                                     center: <?=\Yii::$app->settings->get('SiteSettings', 'geo')?>,
                                     zoom: 13
                                 });
-                                var baloon = new ymaps.Placemark(<?=\Yii::$app->settings->get('SiteSettings', 'geo')?>, {
-                                    iconContent: 'Internet-shop'
+                                var coords = <?=\Yii::$app->settings->get('SiteSettings', 'geo')?>;
+                                var baloon = new ymaps.Placemark(coords, {
+                                    iconContent: 'Internet-shop',
+                                    hintContent: 'Офис',
+                                    balloonContent: `
+                                        <div class="balloon">
+                                            <div class="balloon__body">
+                                                <div class="balloon__image">
+                                                    <img class="m-b-10" src="/images/favicon.png" alt="">
+                                                    <div>Офис продаж</div>
+                                                </div>
+                                                <div class="balloon-dot"></div>
+                                            </div>
+                                        </div>
+                                    `,
                                 },{
                                     iconLayout : 'default#image',
                                     iconImageHref: '/images/icons/map-marker.svg',
@@ -29,9 +43,18 @@
                                     .remove('rulerControl')
                                     .remove('zoomControl')
                                     .remove('typeSelector');
+                                placemarks[coords] = baloon;
                                 myMap.controls.add(new ymaps.control.ZoomControl({options: { position: { right: 10, top: 50 }}}));
                                 myMap.behaviors.disable('scrollZoom');
                                 myMap.geoObjects.add(baloon);
+
+                                // Закрыть балун по клику вне области
+                                myMap.events.add('click', closeBalloon);
+                                function closeBalloon() {
+                                    Object.values(placemarks).forEach(el => {
+                                        el.balloon.close();
+                                    });
+                                }
                             }
                         }
                         setTimeout(myfunc, 1000);
@@ -77,6 +100,9 @@
                                 </div>
                                 <?php endif; ?>
                             </div>
+                        </div>
+                        <div class="overflow-hidden m-b-30">
+                            <a href="#contact" class="btn btn-default" data-toggle="modal">Заказать звонок</a>
                         </div>
                         <div class="overflow-hidden">
                             <!-- Socials -->
@@ -153,7 +179,6 @@
         <div class="container">
             <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
                 <div class="pf-item p-y-15 p-md-y-20 m-sm-r-15">© <?=Date('Y')?> <?= str_replace(['http://', 'https://'], '', Yii::$app->request->hostInfo) ?></div>
-                <div class="pf-item p-y-15 p-md-y-20 flex-static"><a href="https://red-promo.ru" target="_blank" class="link link-f">Создание сайта</a> - Red Promo</div>
             </div>
         </div>
     </footer>

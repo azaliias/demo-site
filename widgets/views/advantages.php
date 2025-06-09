@@ -1,4 +1,5 @@
 <!-- Advantages -->
+<?php if($advantages):?>
 <div class="advantages block-padding bg-clr-secondary-transparent">
     <div class="container">
         <div class="a-title title-1 text-center m-b-30 m-md-b-50"><?=Yii::$app->settings->get('SiteSettings', 'advantagesTitle')?></div>
@@ -14,8 +15,9 @@
                 </ul>
             </div>
             <div class="f-col-md-6 d-flex f-order-first f-order-md-0 m-b-20 m-md-b-0">
-                <div class="a-img bg-img-cover w-100" style="background-image: url(<?=Yii::$app->settings->get('SiteSettings', 'advantagesLogo')?>"></div>
+                <div class="a-img bg-img-cover w-100" style="background-image: url(<?=Yii::$app->settings->get('SiteSettings', 'advantagesLogo') ?? '/images/6.jpg'?>"></div>
             </div>
         </div>
     </div>
 </div>
+<?php endif;?>

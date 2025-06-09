@@ -7,10 +7,10 @@ use yii\helpers\Url;
     <div class="container">
         <div class="text-center m-b-30 m-md-b-50">
             <div class="d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center m-n-r-20">
-                <div class="s-title title-1 m-r-20">Наши услуги</div>
+                <div class="s-title title-1 m-r-20">Services</div>
                 <a href="<?=Url::toRoute(['service/index'])?>" class="link link-all m-t-5 m-r-20">Смотреть все</a>
             </div>
-            <div class="s-sub-title title-4 text-clr font-w m-t-15 m-md-t-20">Разнообразный и богатый опыт начало повседневной работы по формированию</div>
+            <div class="s-sub-title title-4 text-clr font-w m-t-15 m-md-t-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae tristique augue.</div>
         </div>
         <div class="f-row m-n-b-30">
           <?php foreach($services as $item): ?>

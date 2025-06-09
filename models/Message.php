@@ -13,6 +13,7 @@ use yii\db\ActiveRecord;
  * @property string $phone
  * @property string $message
  * @property string $created_at
+ * @property string $updated_at
  */
 class Message extends ActiveRecord
 {
@@ -42,7 +43,7 @@ class Message extends ActiveRecord
     public function rules()
     {
         return [
-            [['created_at'], 'integer'],
+            [['created_at', 'updated_at'], 'integer'],
             [['name', 'phone'], 'string', 'max' => 255],
             [['message'], 'string'],
         ];
@@ -59,36 +60,35 @@ class Message extends ActiveRecord
             'phone' => Yii::t('app', 'Phone'),
             'message' => Yii::t('app', 'Message'),
             'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
     
-    // public function contact($email)
-    // {
-    //     if ($this->validate() && $this->checkCacheKey()) {
+     public function contact($email)
+     {
+         if ($this->validate() && $this->checkCacheKey()) {
 
-    //         if ($email) {
-    //             try {
-    //                 Yii::$app->mailer->compose('contact', ['contact' => $this])
-    //                     ->setTo(explode(',', $email))
-    //                     ->setFrom([Yii::$app->settings->get('SiteSettings', 'fromEmail') => 'С сайта'])
-    //                     ->setSubject('Форма обратной связи')
-    //                     ->send();
-    //             } catch (\Exception $exc) {
-    //                     $message = 'Ошибка отправки сообщения' . "\n";
-    //                     $message .= $this->name . "\n";
-    //                     $message .= 'Тип: ' . $this->type . "\n";
-    //                     $message .= 'Телефон: ' . $this->phone . "\n";
-    //                     $message .= 'Email: ' . $this->email . "\n";
-    //                     $message .= 'Сообщение: ' . $this->message . "\n";
-    //                     Yii::error($exc);
-    //                     Yii::error($message, 'email');
-    //             }
-    //         }
+             if ($email) {
+                 try {
+                     Yii::$app->mailer->compose('contact', ['contact' => $this])
+                         ->setTo(explode(',', $email))
+                         ->setFrom([Yii::$app->settings->get('SiteSettings', 'fromEmail') => 'С сайта'])
+                         ->setSubject('Форма обратной связи')
+                         ->send();
+                 } catch (\Exception $exc) {
+                         $message = 'Ошибка отправки сообщения' . "\n";
+                         $message .= $this->name . "\n";
+                         $message .= 'Телефон: ' . $this->phone . "\n";
+                         $message .= 'Сообщение: ' . $this->message . "\n";
+                         Yii::error($exc);
+                         Yii::error($message, 'email');
+                 }
+             }
 
-    //         return true;
-    //     }
-    //     return false;
-    // }
+             return true;
+         }
+         return false;
+     }
     
     private function checkCacheKey()
     {

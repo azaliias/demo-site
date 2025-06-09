@@ -3,6 +3,7 @@ use yii\helpers\Url;
 ?>
 
 <!-- News -->
+<?php if($news):?>
 <div class="services block-margin">
     <div class="container">
         <div class="text-center m-b-30 m-md-b-50">
@@ -31,3 +32,4 @@ use yii\helpers\Url;
         </div>
     </div>
 </div>
+<?php endif;?>

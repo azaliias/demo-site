@@ -3,12 +3,12 @@ use yii\helpers\Url;
 use yii\widgets\LinkPager;
 ?>
 
-
 <!-- Actions -->
+<?php if($actions):?>
   <div class="actions block-padding bg-clr-main">
     <div class="container">
       <div class="d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center text-center m-n-r-20 m-b-30 m-md-b-50">
-        <div class="a-title title-1 m-r-20">Акции</div>
+        <div class="a-title title-1 m-r-20">Actions</div>
         <a href="<?=Url::toRoute(['action/index'])?>" class="link link-all text-clr m-t-5 m-r-20">Смотреть все</a>
       </div>
       <div class="a-slider">
@@ -39,3 +39,4 @@ use yii\widgets\LinkPager;
       </div>
     </div>
   </div>
+<?php endif;?>

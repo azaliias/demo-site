@@ -21,22 +21,23 @@ AppAsset::register($this);
 <?php
 	echo \app\widgets\Slider::widget();
 	echo \app\widgets\Services::widget();
-//	echo \app\widgets\Advantages::widget();
-//	echo \app\widgets\Steps::widget();
+	echo \app\widgets\Advantages::widget();
+	echo \app\widgets\Actions::widget();
+	echo \app\widgets\Steps::widget();
 ?>
 
-<?//= $this->render('/templates/_banner');?>
+<?= $this->render('/templates/_banner');?>
 
 <?php
 //	echo \app\widgets\News::widget();
-//	echo \app\widgets\Actions::widget();
-//	echo \app\widgets\Photos::widget();
+
+	echo \app\widgets\Photos::widget();
 //	echo \app\widgets\Partners::widget();
-//	echo \app\widgets\Messages::widget();
+	echo \app\widgets\Messages::widget();
 //	echo \app\widgets\SecondSlider::widget();
 ?>
 
-<?//= $this->render('/templates/_about');?>
+<?= $this->render('/templates/_about');?>
 
 <?php
 //	echo \app\widgets\Reviews::widget();

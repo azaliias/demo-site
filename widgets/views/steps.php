@@ -2,7 +2,7 @@
 <?php if (!empty($steps)) :?>
 <div class="steps block-margin">
     <div class="container">
-      <div class="a-title title-1 text-center m-b-30 m-md-b-50">Как мы работаем</div>
+      <div class="a-title title-1 text-center m-b-30 m-md-b-50">Steps</div>
 
       <div class="f-row m-n-b-20 m-n-md-b-30">
         <?php $i = 1; ?>

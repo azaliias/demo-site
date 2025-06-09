@@ -11,7 +11,7 @@ use Yii;
  * @property string $title
  * @property string $content
  * @property string $thumbnail
- * @property int $sortds
+ * @property int $sort
  * @property int $visible
  * @property int $created_at
  * @property int $updated_at

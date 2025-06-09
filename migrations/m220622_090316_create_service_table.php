@@ -34,7 +34,7 @@ class m220622_090316_create_service_table extends Migration
             'title' => 'Service 1',
             'slug' => 'service-1',
             'content' => 'Content text for service',
-            'thumbnail' => '/uploads/service/1.jpg',
+            'thumbnail' => '/images/1.jpg',
             'sort' => 0,
             'visible' => 1,
         ]);
@@ -43,7 +43,7 @@ class m220622_090316_create_service_table extends Migration
             'title' => 'Service 2',
             'slug' => 'service-2',
             'content' => 'Content text for service',
-            'thumbnail' => '/uploads/service/2.jpg',
+            'thumbnail' => '/images/2.jpg',
             'sort' => 1,
             'visible' => 1,
         ]);
@@ -52,7 +52,7 @@ class m220622_090316_create_service_table extends Migration
             'title' => 'Service 3',
             'slug' => 'service-3',
             'content' => 'Content text for service',
-            'thumbnail' => '/uploads/service/3.jpg',
+            'thumbnail' => '/images/3.jpg',
             'sort' => 2,
             'visible' => 1,
         ]);

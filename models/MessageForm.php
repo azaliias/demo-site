@@ -6,24 +6,22 @@ use Yii;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "{{%contact}}".
+ * This is the model class for table "{{%message}}".
  *
  * @property int $id
- * @property string $type
  * @property string $name
  * @property string $phone
- * @property string $email
  * @property string $message
- * @property int $seen
  * @property string $created_at
  * @property string $updated_at
  */
-class ContactFormModal extends Contact
+class MessageForm extends Message
 {
     public $check;
     public $name;
     public $phone;
     public $message;
+    public $agree;
     
     /**
      * {@inheritdoc}
@@ -33,10 +31,12 @@ class ContactFormModal extends Contact
         return [
             [['phone'], 'required'],
             ['phone', 'string', 'min'=>18, 'max' => 18, 'tooLong'  => 'Номер телефона должен содержать 11 цифр.', 'tooShort' => 'Номер телефона должен содержать 11 цифр.'],
-            [['name', 'phone', 'email'], 'string', 'max' => 255],
+            [['name', 'phone'], 'string', 'max' => 255],
             [['message'], 'string'],
             [['check'], 'in', 'range' => [14]],
             [['check'], 'required'],
+            [['agree'], 'required', 'requiredValue' => 1, 'message' => 'Для отправки сообщения нужно дать согласие на обработку данных'],
+
         ];
     }
 

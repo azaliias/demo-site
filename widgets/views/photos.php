@@ -8,7 +8,7 @@ use yii\helpers\Url;
     <div class="container">
       <div class="text-center m-b-30 m-md-b-50">
         <div class="d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center m-n-r-20">
-          <div class="p-title title-1 m-r-20"><?=Yii::$app->settings->get('SiteSettings','photosTitle') ?></div>
+          <div class="p-title title-1 m-r-20"><?=Yii::$app->settings->get('SiteSettings','photosTitle') ?? 'Photos'?></div>
           <a href="<?=Url::toRoute(['photo/index'])?>" class="link link-all m-t-5 m-r-20">Смотреть все</a>
         </div>
         <div class="p-sub-title title-4 text-clr font-w m-t-15 m-md-t-20"><?= Yii::$app->settings->get('SiteSettings','photosText') ?></div>

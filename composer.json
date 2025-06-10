@@ -26,7 +26,10 @@
         "kartik-v/yii2-widget-datetimepicker": "^1.4",
         "kartik-v/yii2-field-range": "dev-master",
         "kartik-v/yii2-date-range": "dev-master",
-        "creocoder/yii2-nested-sets": "^0.9.0"
+        "creocoder/yii2-nested-sets": "^0.9.0",
+        "ext-simplexml": "*",
+        "ext-xmlreader": "*",
+        "yii2tech/spreadsheet": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -41,6 +44,9 @@
         "process-timeout": 1800,
         "fxp-asset": {
             "enabled": false
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
         }
     },
     "scripts": {

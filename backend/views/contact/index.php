@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
@@ -10,6 +11,16 @@ use yii\helpers\Url;
 
 $this->title = Yii::t('app', 'Contacts');
 $this->params['breadcrumbs'][] = $this->title;
+
+$columns = [
+    'id' => 'ID',
+    'name' => 'Имя',
+    'phone' => 'Телефон',
+    'email' => 'Email',
+    'message' => 'Сообщение',
+    'created_at' => 'Создано',
+    'updated_at' => 'Обновлено'
+];
 ?>
 
     <div class="m-b-15">
@@ -32,6 +43,32 @@ $this->params['breadcrumbs'][] = $this->title;
         ]); ?>
 
         <div class="col-md-3 col-md-push-9">
+            <div class="btn-group m-b-15">
+            <?php ActiveForm::begin([
+                'method' => 'post',
+                'action' => Url::to(['/admin/contact/report-save', Yii::$app->request->queryParams])
+            ]); ?>
+            <div class="btn-group">
+                <button type="button" class="label-left btn btn-default dropdown-toggle" data-toggle="dropdown" title="Выбрать колонки"><span class="btn-label"><i class="ti-menu"></i><i class="caret"></i></span>
+                    Колонки</button>
+                <ul class="dropdown-menu kv-checkbox-list" role="menu" style="min-width: 200px;max-height: 400px;overflow-y: scroll;">
+                    <?php foreach ($columns as $name => $column): ?>
+                        <li>
+                            <div class="checkbox">
+                                <label class="" for="col<?=$name?>">
+                                    <input id="col<?=$name?>" type="checkbox" class="" name="columns[<?=$name?>]" value="1" checked="" data-key="0"><?=$column?>
+                                </label>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <button type="submit" class="label-left btn btn-warning" title="Скачать">
+                <span class="btn-label"><i class="ti-save"></i></span>
+                Скачать
+            </button>
+            <?php ActiveForm::end()?>
+        </div>
             <div class="hidden-xs hidden-sm" id="search-form">
                 <div class="panel panel-success">
                     <div class="panel-heading">Поиск</div>

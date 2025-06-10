@@ -20,10 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php
 
     $attributes = [
+        'id',
         'name',
         'phone',
+        'email',
         'message:ntext',
         'created_at:datetime',
+        'updated_at:datetime',
     ];
 
     echo DetailView::widget([
